@@ -30,9 +30,18 @@ def mineral_letter(request, letter):
 def mineral_search(request):
     term = request.GET.get("q")
     minerals = m.filter(
-        Q(name__icontains=term) |
+       Q(name__icontains=term) |
         Q(group__icontains=term) |
-        Q(image_caption=term)
+        Q(image_caption__icontains=term) |
+        Q(category__icontains=term) |
+        Q(formula__icontains=term) |
+        Q(crystal_system__icontains=term) |
+        Q(color__icontains=term) |
+        Q(luster__icontains=term) |
+        Q(crystal_habit__icontains=term) |
+        Q(specific_gravity__icontains=term) |
+        Q(streak__icontains=term) |
+        Q(strunz_classification__icontains=term)
     )
 
     return render(request, 'index.html', {'minerals': minerals,

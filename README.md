@@ -1,12 +1,17 @@
-# Filterring and Searching a Mineral Catelog
+# Filtering and Searching a Mineral Catelog
 Add features to a web application that catalogs minerals to build a fully-featured web site. Add the ability to search information and filter it to match user preferences.
 
-## Requirements
+## Project Requirements
+Full-text search and filtering of mineral fields
+Unit test the app
+Optimize query times to the database
+
+## App Requirements
 Django == 1.11.3
 
 django-debug-toolbar == 1.8
 
-### Running the Program
+### Start Application
 After installing django and required files, run django on your local machine terminal to get the interactive minerals site
 ```python
 python manage.py runserver
@@ -16,6 +21,7 @@ Once the porject is running, in your browser, you should be able to see and do t
 1. Homepage - see a list of minerals
 2. Click on a list to see more minerals
 3. Search field to search minerals by the following multiple fields
+e.g. searching for the strunz-classification term "09.Db.45" and this would yield the "Aerinite" mineral
 ```python
 def mineral_search(request):
     term = request.GET.get("q")

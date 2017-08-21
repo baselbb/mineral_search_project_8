@@ -1,6 +1,4 @@
 import random
-import pickle
-
 
 from django.shortcuts import render
 from django.db.models import Q
